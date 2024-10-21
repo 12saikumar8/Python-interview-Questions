@@ -1,0 +1,399 @@
+# 1. Write a Python function to return the result string which should not contain digits and duplicate characters:
+
+# def remove_digit_and_duplicate(string):
+#     result=""
+#     seen=set()
+#     for char in string:
+#         if char.isdigit():
+#             continue
+#         if char not in seen:
+#             seen.add(char)
+#             result=result+char
+#     return result
+# string="Data 1 Engineer2"
+# print(remove_digit_and_duplicate(string))
+
+# 2. Write a Python function to rotate an array by K:
+
+# def rotate_array(arr,k):
+#     n=len(arr)
+#     k=k%n
+#     return arr[-k:]+arr[:-k]
+# arr=[1,2,3,4,5]
+# k=6
+# print(rotate_array(arr,k))
+
+# 3. Write a Python function to find the length of the longest substring without repeating characters:
+
+# def length_of_longest_substr(s:str)->int:
+#     seen=set()
+#     l=0
+#     res=0
+#     for r in range(len(s)):
+#         while s[r] in seen:
+#             seen.remove(s[l])
+#             l=l+1
+#         seen.add(s[r])
+#         res=max(res,r-l+1)
+#     return res
+# str="abcabcbb"
+# print(length_of_longest_substr(str))
+
+# 5. Output of this code:
+
+# var = 10 
+# var1 = 5 
+# var2 = 3 
+# result = var // var1 + var1 % var2
+# print(result) 
+#  # Output: 4
+
+# . Write a Python program to print spatial numbers (numbers where digits are repeating, like 444, 33, etc.) 
+# from 1 to a  given number n:
+
+# def spatial_numbers(n):
+#     spatial_nums=[]
+#     for num in range(1,n+1):
+#         num_str=str(num)
+#         all_same=True
+#         for digit in num_str:
+#             if digit != num_str[0]:
+#                 all_same=False
+#                 break
+#         if all_same == True:
+#             spatial_nums.append(num)
+#     return spatial_nums
+# print(spatial_numbers(100))
+
+# by using genrator function 
+
+# def spatial_numbers(n):
+#     spatial_nums=[]
+#     for num in range(1,n+1):
+#         num_str=str(num)
+#         if all(d==num_str[0] for d in num_str):
+#             spatial_nums.append(num)
+#     return spatial_nums
+# print(spatial_numbers(100))
+
+
+# Write a Python program to get the length of the input strings and count each character occurrence excluding spaces:
+
+# def analyse_string(input_str):
+#     input_str=input_str.replace(" ","")
+#     length=len(input_str)
+#     char_count={}
+#     for char in input_str:
+#         if char in char_count:
+#             char_count[char] = char_count[char]+1
+#         else:
+#             char_count[char]=1
+#     return length,char_count
+# input_str=input("enter a string : ")
+# length ,char_count = analyse_string(input_str)
+# print(f"length of string is {length}")
+# print(f"character occurences: {char_count}")
+
+# # if more detail then this  lines need if not needed
+# # for char,count in char_count.items():
+#     # print(f"{char}:{count}")
+
+# How do you find duplicates in a list using Python?
+
+# def find_duplicates(lst):
+#     seen=set()
+#     duplicates=set()
+#     for item in lst:
+#         if item in seen:
+#             duplicates.add(item)
+#         else:
+#             seen.add(item)
+#     return list(duplicates)
+# lst=[1,2,2,3,7,5,5]
+# print(find_duplicates(lst))
+
+# Question to remove duplicates in list
+
+# def remove_duplicates(lst):
+#     seen=set()
+#     res=[]
+#     for i in lst:
+#         if i not in seen:
+#             seen.add(i)
+#             res.append(i)
+#     return res
+# lst=[1,2,2,3,7,5,5]
+# print(remove_duplicates(lst))
+
+# python program to print this pattern 
+# *
+# **
+# ***
+# ****
+
+# def print_pattern(n):
+#     for i in range(1,n+1):
+#         print('*' * i)
+# n=4
+# print_pattern(n)/
+
+# 2️⃣ Given a dictionary with employee names as keys and their ages as values, how would you filter out employees who are older than 30 years?
+
+# def filter_employee(employees):
+#     filtered_employees={}
+#     for name,age in employees.items():
+#         if age>25:
+#             filtered_employees[name]=age
+#     return filtered_employees
+# employees={'sai':26,'srujana':30,'madhri':22,'khan':96}
+# print(filter_employee(employees))
+
+
+# or  
+
+# def filter_employee(employees):
+#     filtered_employees={}
+#     for key,value in employees.items():      
+#         if value>30:
+#             filtered_employees[key]=value
+#     return filtered_employees
+# employees={'emma':38,'srujana':29,'sai':26,'gajan':85}
+# print(filter_employee(employees))
+
+# 3️⃣ How can you merge two dictionaries in Python into a single dictionary, with values from the second dictionary overwriting the first in case of key collisions?
+
+# using update method
+
+# dict1={'sai':1,'1':65,1:'sirf'}
+# dict2={'r':24,'3':'dhoni','sai':25}
+# dict1.update(dict2)
+# print(dict1)
+
+
+
+# def merge_dictionaries(dict1,dict2):
+#     result={}
+#     for key in dict1:
+#         result[key]=dict1[key]
+#     for key in dict2:
+#         result[key]=dict2[key]
+#     return result
+# dict1={'sai':1,'1':65,1:'sirf'}
+# dict2={'r':24,'3':'dhoni', 1:60,'sai':25}
+# print(merge_dictionaries(dict1,dict2))
+
+
+# 4️⃣ How would you convert a list of tuples into a dictionary, where the first element of each tuple is the key and the second element is the value?
+
+# def tuples_to_dict(tuples_list):
+#     result_dict = {}  # Initialize an empty dictionary
+#     for key, value in tuples_list:  # Iterate through each tuple
+#         result_dict[key] = value  # Add key-value pair to the dictionary
+#     return result_dict
+# tuples_list=[(1,'sai'),('suma',9),(88,4)]
+# print(tuples_to_dict(tuples_list))
+
+# 5️⃣ How can you check if two sets are disjoint in Python (i.e., they have no elements in common)?
+
+# set1={1,'sai',6}
+# set2={5,8,'am'}
+
+# check=set1.isdisjoint(set2)
+# print(check)
+
+# 6️⃣ Write a Python code snippet to reverse a tuple in Python. How is it different from reversing a list?
+
+# tuples can be reversed same like list by using slicing but tuples are immutable so for storing reversed elements new tuple should be 
+# created here the original tuple remains original elements and reveresd tuple caontains reveresed elements and we cannot modify them 
+# in place  but in list we can reverse them in inplace by using list.reverse or using new list here inplaced means original list values are replace by 
+# reversed values these is possible because lists are mutable
+
+# original_tuple=(1,2,3,4,5)
+# reversed_tuple = original_tuple[::-1]
+# print(reversed_tuple)
+
+# 7️⃣ Explain how you can remove an item from a set in Python and the difference between discard() and remove() methods.
+# remove() Method:
+
+# Removes a specific item from the set.
+# Raises a KeyError if the item is not present in the se
+
+# my_set = {1, 2, 3, 4}
+
+# # Removing an item
+# my_set.remove(3)
+# print(my_set)  # Output: {1, 2, 4}
+
+# Attempting to remove an item not in the set raises a KeyError
+# my_set.remove(5)  # Raises KeyError: 5
+
+
+# discard() Method:
+
+# Removes a specific item from the set if it is present.
+# Does not raise a KeyError if the item is not found in the set.
+
+# my_set = {1, 2, 3, 4}
+
+# # Discarding an item
+# my_set.discard(3)
+# print(my_set)  # Output: {1, 2, 4}
+
+# # Discarding an item not in the set does nothing and does not raise an error
+# my_set.discard(5)  # No error
+# print(my_set)  # Output: {1, 2, 4}
+
+
+# 8️⃣ How would you convert a list into a tuple in Python? What are the implications of using a tuple instead of a list for performance?
+# my_list = [1, 2, 3, 4, 5]
+
+# # Convert the list to a tuple
+# my_tuple = tuple(my_list)
+
+# # Print the tuple
+# print(my_tuple)  # Output: (1, 2, 3, 4, 5)
+# Implications of Using a Tuple Instead of a List
+
+# Immutability:
+
+# Tuple: Immutable. Once created, the elements cannot be modified.
+# List: Mutable. You can change, add, or remove elements.
+
+# Performance:
+
+# Tuple: Generally more memory-efficient and faster for iteration due to its immutability.
+# List: Can be slower for iteration and requires more memory because of its dynamic nature.
+
+# Write a Python function to flatten a list of lists (i.e., convert [[1, 2], [3, 4], [5]] to [1, 2, 3, 4, 5]).
+
+# def flatten_list(nested_list):
+#     flat_list=[]
+#     for sub_list in nested_list:
+#         for item in sub_list:
+#             flat_list.append(item)
+#     return flat_list
+# nested_list=[[1, 2], [3, 4], [5]]
+# print(flatten_list(nested_list))
+
+# or  to handle arbitary lists of any level we can use recursive approach
+
+# def flatten_list(nested_list):
+#     flat_list=[]
+#     for item in nested_list:
+#         if isinstance(item,list):
+#             flat_list.extend(flatten_list(item))
+#         else:
+#             flat_list.append(item)
+#     return flat_list
+# nested_list=[8,[9,[5,[7],9,3],4]]
+# print(flatten_list(nested_list))
+
+# recursion means function calls itself with smaller parts of input
+
+# 🔟 How would you get the most frequent value in a list using a dictionary in Python?
+
+# def most_frequent(lst):
+#     freq_dict={}
+#     for item in lst:
+#         if item in freq_dict:
+#             freq_dict[item]=freq_dict[item]+1
+#         else:
+#             freq_dict[item]=1
+
+#     most_frequent_value=max(freq_dict,key=freq_dict.get)
+#     return most_frequent_value
+
+# lst=[1,2,3,4,5,1,8,1,0,1]
+# print(most_frequent(lst))
+
+# how to sort array  without builtin functions
+
+# def bubble_sort(arr):
+#     n=len(arr)
+#     for i in range(n):
+#         for j in range(0,n-i-1):
+#             if arr[j]>arr[j+1]:
+#                 arr[j],arr[j+1]=arr[j+1],arr[j]
+#     return arr
+# arr=[5,8,9,3,6,1]
+# print(bubble_sort(arr))
+
+# how to find smallest element in list
+
+# def find_smallest(arr):
+#     small_num=arr[0]
+#     for i in arr:
+#         if i<small_num:
+#             small_num=i
+#     return small_num
+# arr=[8,3,2,7,5]
+# print(find_smallest(arr))
+
+# how to find smallest value in dictionary
+
+# def find_smallest(d):
+#     smallest_key=None
+#     smallest_value=None
+#     for key,value in d.items():
+#         if smallest_key is None or value < smallest_value:
+#             smallest_key=key
+#             smallest_value=value
+#     return smallest_key,smallest_value
+# d={'l':9,'p':6,'w':2}
+# print(find_smallest(d))
+
+# sort the array using merge sort
+
+# def merge_sort(arr):
+#     if len(arr)>1:
+#         mid=len(arr)//2
+#         left_half=arr[:mid]
+#         right_half=arr[mid:]
+
+#         merge_sort(left_half)
+#         merge_sort(right_half)
+
+#         i=j=k=0
+
+#         while i<len(left_half) and j<len(right_half):
+#             if left_half[i]<right_half[j]:
+#                 arr[k]=left_half[i]
+#                 i+=1
+#             else:
+#                 arr[k]=right_half[j]
+#                 j+=1
+#             k+=1
+
+#         # if anything leftover in left_half then
+#         while i<len(left_half):
+#             arr[k]=left_half[i]
+#             i+=1
+#             k+=1
+
+#          # if anything leftover in right_half then
+#         while j<len(right_half):
+#             arr[k]=right_half[j]
+#             j+=1
+#             k+=1
+
+# arr=[10,5,8,12,3,9]
+# merge_sort(arr)
+# print(arr)
+
+
+# def plus_one(digits):
+
+#     for i in range(len(digits)-1,-1,-1):
+#         if digits[i]<9:
+#             digits[i]=digits[i]+1
+#             return digits
+#         else:
+#             digits[i]=0
+
+#     return [1]+digits
+
+# print(plus_one([1,2,3]))
+# print(plus_one([9,9]))
+# print(plus_one([4,2,9,9]))
+
+
